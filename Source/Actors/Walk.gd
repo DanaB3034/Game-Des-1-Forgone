@@ -6,20 +6,7 @@ func _physics_process(delta: float) -> void:
 	var direction : = get_direction()
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
-	
-	if facing_left == true:
-		$Walk.scale.x = 1
-	else:
-		$Walk.scale.x = -1
-	
-	if Input.is_action_pressed('left'):
-		facing_left = true
-		$AnimationPlayer.play("Run")
-	elif Input.is_action_pressed('right'):
-		facing_left = false
-		$AnimationPlayer.play("Run")
-	else:
-		$AnimationPlayer.play("Idle")
+
 
 
 func get_direction() -> Vector2:
